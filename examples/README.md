@@ -1,3 +1,3 @@
-# Terraform AWS <TODO_EXPANDED> Examples
+# Terraform AWS Global Accelerator Examples
 
-- [Complete](https://github.com/clowdhaus/terraform-aws-<TODO>/tree/main/examples/complete)
+- [Complete](https://github.com/clowdhaus/terraform-aws-global-accelerator/tree/main/examples/complete)
