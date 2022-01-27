@@ -2,6 +2,23 @@
 
 Terraform module which creates AWS Global Accelerator resources.
 
+#### ℹ️ `Error: Invalid for_each argument ...`
+
+Users may encounter the following error when using this module:
+
+```
+Error: Invalid for_each argument - The "for_each" value depends on resource attributes that
+cannot be determined until apply, so Terraform cannot predict how many instances will be
+created. To work around this, use the -target argument to first apply ...
+```
+
+This error is due to an upstream issue with [Terraform core](https://github.com/hashicorp/terraform/issues/4149).
+
+The Terraform resource passed into the modules map definition (specifically, endpoint targets) _must_ be known before you can plan or apply the module. To help mitigate this issue, you can do one of the following:
+
+1. Create the dependent resources before the accelerator => `terraform apply -target <your load balancer endpoints or ec2 instances>` and then `terraform apply` to create the accelerator and associated resources
+2. Create the dependent resources elsewhere prior to referencing in the module defintion
+
 ## Usage
 
 See [`examples`](https://github.com/clowdhaus/terraform-aws-global-accelerator/tree/main/examples) directory for working examples to reference:
