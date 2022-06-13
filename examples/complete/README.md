@@ -64,4 +64,4 @@ No inputs.
 | <a name="output_listeners"></a> [listeners](#output\_listeners) | Map of listeners created and their associated attributes |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-Apache-2.0 Licensed. See [LICENSE](https://github.com/clowdhaus/terraform-aws-global-accelerator/blob/main/LICENSE).
+Apache-2.0 Licensed. See [LICENSE](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/blob/master/LICENSE).
