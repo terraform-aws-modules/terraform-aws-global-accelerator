@@ -29,16 +29,12 @@ module "vpc" {
   azs            = ["${local.region}a", "${local.region}b", "${local.region}c"]
   public_subnets = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
 
-  enable_nat_gateway      = false
-  single_nat_gateway      = true
-  map_public_ip_on_launch = false
-
   tags = local.tags
 }
 
 module "alb" {
   source  = "terraform-aws-modules/alb/aws"
-  version = "~> 6.0"
+  version = "~> 7.0"
 
   name               = local.name
   load_balancer_type = "application"
@@ -64,7 +60,7 @@ module "alb" {
 
 module "s3_log_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "~> 2.0"
+  version = "~> 3.0"
 
   bucket = "${local.name}-flowlogs-${data.aws_caller_identity.current.account_id}-${local.region}"
   acl    = "log-delivery-write"
@@ -87,7 +83,7 @@ module "s3_log_bucket" {
 }
 
 ################################################################################
-# Global Acclerator Module
+# Global Accelerator Module
 ################################################################################
 
 module "global_accelerator_disabled" {
@@ -183,15 +179,15 @@ module "global_accelerator" {
   }
 
   listeners_timeouts = {
-    create = 35
-    update = 35
-    delete = 35
+    create = "35m"
+    update = "35m"
+    delete = "35m"
   }
 
   endpoint_groups_timeouts = {
-    create = 35
-    update = 35
-    delete = 35
+    create = "35m"
+    update = "35m"
+    delete = "35m"
   }
 
   tags = local.tags
