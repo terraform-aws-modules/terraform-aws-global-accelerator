@@ -1,14 +1,5 @@
 # AWS Global Accelerator Terraform module
 
-## ⚠️ Module has move to `terraform-aws-modules`
-
-This module has moved to the terraform-aws-modules organization. Users will need to update their module source:
-
-```diff
-- source = "clowdhaus/global-accelerator/aws"
-+ source = "terraform-aws-modules/global-accelerator/aws"
-```
-
 Terraform module which creates AWS Global Accelerator resources.
 
 ## Usage
