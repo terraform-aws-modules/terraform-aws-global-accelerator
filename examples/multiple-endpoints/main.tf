@@ -140,9 +140,9 @@ module "global_accelerator" {
           health_check_path             = "/"
           health_check_interval_seconds = 10
           health_check_timeout_seconds  = 5
-          healthy_threshold_count       = 2
-          unhealthy_threshold_count     = 2
-          traffic_dial_percentage       = 100
+          threshold_count               = 2
+          # unhealthy_threshold_count     = 2
+          traffic_dial_percentage = 100
 
           # Health checks will show as unhealthy in this example because there
           # are obviously no healthy instances in the target group
