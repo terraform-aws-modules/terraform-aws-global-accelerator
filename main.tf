@@ -13,6 +13,8 @@ locals {
       traffic_dial_percentage       = ev.traffic_dial_percentage
 
       endpoint_configuration = ev.endpoint_configuration
+
+      port_override = ev.port_override
     }
     ]
   ])
@@ -94,7 +96,7 @@ resource "aws_globalaccelerator_endpoint_group" "this" {
   }
 
   dynamic "port_override" {
-    for_each = can(each.value.port_override) ? each.value.endpoint_group.port_override : []
+    for_each = can(each.value.port_override) ? each.value.port_override : []
     content {
       endpoint_port = port_override.value.endpoint_port
       listener_port = port_override.value.listener_port
