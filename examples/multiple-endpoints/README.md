@@ -30,23 +30,25 @@ Note that this example may create resources which will incur monetary charges on
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0 |
+| <a name="provider_aws.eu"></a> [aws.eu](#provider\_aws.eu) | >= 4.0 |
+| <a name="provider_aws.us"></a> [aws.us](#provider\_aws.us) | >= 4.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_alb"></a> [alb](#module\_alb) | terraform-aws-modules/alb/aws | ~> 7.0 |
+| <a name="module_alb_eu"></a> [alb\_eu](#module\_alb\_eu) | terraform-aws-modules/alb/aws | ~> 7.0 |
+| <a name="module_alb_us"></a> [alb\_us](#module\_alb\_us) | terraform-aws-modules/alb/aws | ~> 7.0 |
 | <a name="module_global_accelerator"></a> [global\_accelerator](#module\_global\_accelerator) | ../.. | n/a |
-| <a name="module_global_accelerator_disabled"></a> [global\_accelerator\_disabled](#module\_global\_accelerator\_disabled) | ../.. | n/a |
-| <a name="module_s3_log_bucket"></a> [s3\_log\_bucket](#module\_s3\_log\_bucket) | terraform-aws-modules/s3-bucket/aws | ~> 3.0 |
-| <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | ~> 3.0 |
+| <a name="module_vpc_eu"></a> [vpc\_eu](#module\_vpc\_eu) | terraform-aws-modules/vpc/aws | ~> 3.0 |
+| <a name="module_vpc_us"></a> [vpc\_us](#module\_vpc\_us) | terraform-aws-modules/vpc/aws | ~> 3.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_availability_zones.eu](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
+| [aws_availability_zones.us](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
 
 ## Inputs
 
