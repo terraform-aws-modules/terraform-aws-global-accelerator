@@ -10,7 +10,6 @@ provider "aws" {
 
 locals {
   name = "ga-${replace(basename(path.cwd), "_", "-")}"
-  # name = "global-acclerator-ex-${replace(basename(path.cwd), "_", "-")}" Over 32 characters
 
   tags = {
     Name       = local.name
@@ -18,103 +17,6 @@ locals {
     Repository = "https://github.com/terraform-aws-modules/terraform-aws-global-accelerator"
   }
 }
-
-################################################################################
-# Supporting Resources
-################################################################################
-
-module "vpc_eu" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 3.0"
-
-  providers = {
-    aws = aws.eu
-  }
-
-  name = local.name
-  cidr = "10.99.0.0/18"
-
-  azs            = data.aws_availability_zones.eu.names
-  public_subnets = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
-
-  tags = local.tags
-}
-module "alb_eu" {
-  source  = "terraform-aws-modules/alb/aws"
-  version = "~> 7.0"
-
-  providers = {
-    aws = aws.eu
-  }
-
-  name               = local.name
-  load_balancer_type = "application"
-
-  vpc_id          = module.vpc_eu.vpc_id
-  subnets         = module.vpc_eu.public_subnets
-  security_groups = [module.vpc_eu.default_security_group_id]
-
-  http_tcp_listeners = [{
-    port               = 80
-    protocol           = "HTTP"
-    target_group_index = 0
-  }]
-
-  target_groups = [{
-    backend_protocol = "HTTP"
-    backend_port     = 80
-    target_type      = "ip"
-  }]
-
-  tags = local.tags
-}
-
-module "vpc_us" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 3.0"
-
-  providers = {
-    aws = aws.us
-  }
-
-  name = local.name
-  cidr = "10.99.0.0/18"
-
-  azs            = data.aws_availability_zones.us.names
-  public_subnets = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
-
-  tags = local.tags
-}
-module "alb_us" {
-  source  = "terraform-aws-modules/alb/aws"
-  version = "~> 7.0"
-
-  providers = {
-    aws = aws.us
-  }
-
-  name               = local.name
-  load_balancer_type = "application"
-
-  vpc_id          = module.vpc_us.vpc_id
-  subnets         = module.vpc_us.public_subnets
-  security_groups = [module.vpc_us.default_security_group_id]
-
-  http_tcp_listeners = [{
-    port               = 80
-    protocol           = "HTTP"
-    target_group_index = 0
-  }]
-
-  target_groups = [{
-    backend_protocol = "HTTP"
-    backend_port     = 80
-    target_type      = "ip"
-  }]
-
-  tags = local.tags
-}
-
 
 ################################################################################
 # Global Accelerator Module
@@ -208,10 +110,110 @@ module "global_accelerator" {
   tags = local.tags
 }
 
+module "alb_eu" {
+  source  = "terraform-aws-modules/alb/aws"
+  version = "~> 7.0"
+
+  providers = {
+    aws = aws.eu
+  }
+
+  name               = local.name
+  load_balancer_type = "application"
+
+  vpc_id          = module.vpc_eu.vpc_id
+  subnets         = module.vpc_eu.public_subnets
+  security_groups = [module.vpc_eu.default_security_group_id]
+
+  http_tcp_listeners = [{
+    port               = 80
+    protocol           = "HTTP"
+    target_group_index = 0
+  }]
+
+  target_groups = [{
+    backend_protocol = "HTTP"
+    backend_port     = 80
+    target_type      = "ip"
+  }]
+
+  tags = local.tags
+}
+
+module "alb_us" {
+  source  = "terraform-aws-modules/alb/aws"
+  version = "~> 7.0"
+
+  providers = {
+    aws = aws.us
+  }
+
+  name               = local.name
+  load_balancer_type = "application"
+
+  vpc_id          = module.vpc_us.vpc_id
+  subnets         = module.vpc_us.public_subnets
+  security_groups = [module.vpc_us.default_security_group_id]
+
+  http_tcp_listeners = [{
+    port               = 80
+    protocol           = "HTTP"
+    target_group_index = 0
+  }]
+
+  target_groups = [{
+    backend_protocol = "HTTP"
+    backend_port     = 80
+    target_type      = "ip"
+  }]
+
+  tags = local.tags
+}
+
+################################################################################
+# Supporting Resources
+################################################################################
+
+module "vpc_eu" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "~> 3.0"
+
+  providers = {
+    aws = aws.eu
+  }
+
+  name = local.name
+  cidr = "10.99.0.0/18"
+
+  azs            = data.aws_availability_zones.eu.names
+  public_subnets = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
+
+  tags = local.tags
+}
+
+module "vpc_us" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "~> 3.0"
+
+  providers = {
+    aws = aws.us
+  }
+
+  name = local.name
+  cidr = "10.99.0.0/18"
+
+  azs            = data.aws_availability_zones.us.names
+  public_subnets = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
+
+  tags = local.tags
+}
+
+
 data "aws_availability_zones" "eu" {
   provider = aws.eu
   state    = "available"
 }
+
 data "aws_availability_zones" "us" {
   provider = aws.us
   state    = "available"
