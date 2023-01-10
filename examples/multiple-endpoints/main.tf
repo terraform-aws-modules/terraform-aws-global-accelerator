@@ -9,7 +9,7 @@ provider "aws" {
 }
 
 locals {
-  name = "acclerator-${replace(basename(path.cwd), "_", "-")}"
+  name = "ga-${replace(basename(path.cwd), "_", "-")}"
   # name = "global-acclerator-ex-${replace(basename(path.cwd), "_", "-")}" Over 32 characters
 
   tags = {
