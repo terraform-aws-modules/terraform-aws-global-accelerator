@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.1](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.0.0...v2.0.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* Use a version for  to avoid GitHub API rate limiting on CI workflows ([#6](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/issues/6)) ([05674ad](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/commit/05674adb669b9f25fbca5fbe33c20169ee8483aa))
+
 ## [2.0.0](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v1.1.0...v2.0.0) (2022-11-12)
 
 
