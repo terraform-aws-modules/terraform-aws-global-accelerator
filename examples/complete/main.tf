@@ -97,8 +97,6 @@ module "global_accelerator" {
 
   name = local.name
 
-  ip_addresses = ["0.0.0.0", "1.1.1.1"]
-
   flow_logs_enabled   = true
   flow_logs_s3_bucket = module.s3_log_bucket.s3_bucket_id
   flow_logs_s3_prefix = local.name
