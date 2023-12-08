@@ -21,7 +21,7 @@ data "aws_caller_identity" "current" {}
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 3.0"
+  version = "~> 5.0"
 
   name = local.name
   cidr = "10.99.0.0/18"
@@ -96,6 +96,8 @@ module "global_accelerator" {
   source = "../.."
 
   name = local.name
+
+  ip_addresses = ["0.0.0.0", "1.1.1.1"]
 
   flow_logs_enabled   = true
   flow_logs_s3_bucket = module.s3_log_bucket.s3_bucket_id
