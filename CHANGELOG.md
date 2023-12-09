@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.0.1...v2.1.0) (2023-12-09)
+
+
+### Features
+
+* Add bring-your-own-ip adresses capability ([#9](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/issues/9)) ([5756ad1](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/commit/5756ad1ec57a883c853b6ecfdd43d820b5c7106a))
+
 ### [2.0.1](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.0.0...v2.0.1) (2023-02-01)
 
 
