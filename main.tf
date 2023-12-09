@@ -7,6 +7,7 @@ resource "aws_globalaccelerator_accelerator" "this" {
 
   name            = var.name
   ip_address_type = var.ip_address_type
+  ip_addresses    = var.ip_addresses
   enabled         = var.enabled
 
   dynamic "attributes" {
@@ -48,7 +49,7 @@ resource "aws_globalaccelerator_listener" "this" {
 }
 
 ################################################################################
-# Endpoing Group(s)
+# Endpoint Group(s)
 ################################################################################
 
 resource "aws_globalaccelerator_endpoint_group" "this" {

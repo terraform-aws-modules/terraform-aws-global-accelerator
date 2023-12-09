@@ -26,6 +26,12 @@ variable "ip_address_type" {
   default     = "IPV4"
 }
 
+variable "ip_addresses" {
+  description = "The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses"
+  type        = list(string)
+  default     = []
+}
+
 variable "enabled" {
   description = "Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`"
   type        = bool
