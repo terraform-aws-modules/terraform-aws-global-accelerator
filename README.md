@@ -141,7 +141,7 @@ No modules.
 | <a name="input_flow_logs_s3_bucket"></a> [flow\_logs\_s3\_bucket](#input\_flow\_logs\_s3\_bucket) | The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true` | `string` | `null` | no |
 | <a name="input_flow_logs_s3_prefix"></a> [flow\_logs\_s3\_prefix](#input\_flow\_logs\_s3\_prefix) | The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true` | `string` | `null` | no |
 | <a name="input_ip_address_type"></a> [ip\_address\_type](#input\_ip\_address\_type) | The value for the address type. Defaults to `IPV4`. Valid values: `IPV4` | `string` | `"IPV4"` | no |
-| <a name="input_ip_addresses"></a> [ip\_addresses](#input\_ip\_addresses) | The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses. | `list(string)` | `[]` | no |
+| <a name="input_ip_addresses"></a> [ip\_addresses](#input\_ip\_addresses) | The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses | `list(string)` | `[]` | no |
 | <a name="input_listeners"></a> [listeners](#input\_listeners) | A map of listener defintions to create | `any` | `{}` | no |
 | <a name="input_listeners_timeouts"></a> [listeners\_timeouts](#input\_listeners\_timeouts) | Create, update, and delete timeout configurations for the listeners | `map(string)` | `{}` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the accelerator | `string` | `""` | no |
