@@ -21,7 +21,7 @@ variable "name" {
 }
 
 variable "ip_address_type" {
-  description = "The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`"
+  description = "The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`"
   type        = string
   default     = "IPV4"
 }
