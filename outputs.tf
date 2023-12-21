@@ -12,6 +12,11 @@ output "dns_name" {
   value       = try(aws_globalaccelerator_accelerator.this[0].dns_name, "")
 }
 
+output "dual_stack_dns_name" {
+  description = "The DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses"
+  value       = try(aws_globalaccelerator_accelerator.this[0].dual_stack_dns_name, "")
+}
+
 output "hosted_zone_id" {
   description = "The Global Accelerator Route 53 zone ID that can be used to route an Alias Resource Record Set to the Global Accelerator"
   value       = try(aws_globalaccelerator_accelerator.this[0].hosted_zone_id, "")

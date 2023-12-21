@@ -140,7 +140,7 @@ No modules.
 | <a name="input_flow_logs_enabled"></a> [flow\_logs\_enabled](#input\_flow\_logs\_enabled) | Indicates whether flow logs are enabled. Defaults to `false` | `bool` | `false` | no |
 | <a name="input_flow_logs_s3_bucket"></a> [flow\_logs\_s3\_bucket](#input\_flow\_logs\_s3\_bucket) | The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true` | `string` | `null` | no |
 | <a name="input_flow_logs_s3_prefix"></a> [flow\_logs\_s3\_prefix](#input\_flow\_logs\_s3\_prefix) | The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true` | `string` | `null` | no |
-| <a name="input_ip_address_type"></a> [ip\_address\_type](#input\_ip\_address\_type) | The value for the address type. Defaults to `IPV4`. Valid values: `IPV4` | `string` | `"IPV4"` | no |
+| <a name="input_ip_address_type"></a> [ip\_address\_type](#input\_ip\_address\_type) | The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK` | `string` | `"IPV4"` | no |
 | <a name="input_ip_addresses"></a> [ip\_addresses](#input\_ip\_addresses) | The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses | `list(string)` | `[]` | no |
 | <a name="input_listeners"></a> [listeners](#input\_listeners) | A map of listener defintions to create | `any` | `{}` | no |
 | <a name="input_listeners_timeouts"></a> [listeners\_timeouts](#input\_listeners\_timeouts) | Create, update, and delete timeout configurations for the listeners | `map(string)` | `{}` | no |
@@ -152,6 +152,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_dns_name"></a> [dns\_name](#output\_dns\_name) | The DNS name of the accelerator |
+| <a name="output_dual_stack_dns_name"></a> [dual\_stack\_dns\_name](#output\_dual\_stack\_dns\_name) | The DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses |
 | <a name="output_endpoint_groups"></a> [endpoint\_groups](#output\_endpoint\_groups) | Map of endpoints created and their associated attributes |
 | <a name="output_hosted_zone_id"></a> [hosted\_zone\_id](#output\_hosted\_zone\_id) | The Global Accelerator Route 53 zone ID that can be used to route an Alias Resource Record Set to the Global Accelerator |
 | <a name="output_id"></a> [id](#output\_id) | The Amazon Resource Name (ARN) of the accelerator |
