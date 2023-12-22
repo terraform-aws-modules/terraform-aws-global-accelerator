@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.0](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.1.0...v2.2.0) (2023-12-22)
+
+
+### Features
+
+* Add support for `dual_stack_dns_name` output value ([#10](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/issues/10)) ([641958b](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/commit/641958b8800b97beb7018c38468e5fc0745d90e4))
+
 ## [2.1.0](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.0.1...v2.1.0) (2023-12-09)
 
 
