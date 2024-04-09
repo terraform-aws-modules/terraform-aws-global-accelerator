@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.2](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.2.1...v2.2.2) (2024-04-09)
+
+
+### Bug Fixes
+
+* endpoint group creation ([#14](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/issues/14)) ([1ea3d52](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/commit/1ea3d5267fa6eab1b4e7ee6565315000c78330c0))
+
 ## [2.2.1](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.2.0...v2.2.1) (2024-03-07)
 
 
