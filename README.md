@@ -103,7 +103,7 @@ Examples codified under the [`examples`](https://github.com/terraform-aws-module
 
 - [Complete](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/tree/master/examples/complete)
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -158,7 +158,7 @@ No modules.
 | <a name="output_id"></a> [id](#output\_id) | The Amazon Resource Name (ARN) of the accelerator |
 | <a name="output_ip_sets"></a> [ip\_sets](#output\_ip\_sets) | IP address set associated with the accelerator |
 | <a name="output_listeners"></a> [listeners](#output\_listeners) | Map of listeners created and their associated attributes |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
 
 ## License
 
