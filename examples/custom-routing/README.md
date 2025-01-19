@@ -24,23 +24,21 @@ Note that this example may create resources which will incur monetary charges on
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.83 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.84 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.83 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.84 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_alb"></a> [alb](#module\_alb) | terraform-aws-modules/alb/aws | ~> 7.0 |
-| <a name="module_global_accelerator"></a> [global\_accelerator](#module\_global\_accelerator) | ../.. | n/a |
-| <a name="module_global_accelerator_disabled"></a> [global\_accelerator\_disabled](#module\_global\_accelerator\_disabled) | ../.. | n/a |
+| <a name="module_global_accelerator"></a> [global\_accelerator](#module\_global\_accelerator) | ../../modules/custom-routing | n/a |
+| <a name="module_global_accelerator_disabled"></a> [global\_accelerator\_disabled](#module\_global\_accelerator\_disabled) | ../../modules/custom-routing | n/a |
 | <a name="module_s3_log_bucket"></a> [s3\_log\_bucket](#module\_s3\_log\_bucket) | terraform-aws-modules/s3-bucket/aws | ~> 3.0 |
-| <a name="module_secondary_alb"></a> [secondary\_alb](#module\_secondary\_alb) | terraform-aws-modules/alb/aws | ~> 7.0 |
 | <a name="module_secondary_vpc"></a> [secondary\_vpc](#module\_secondary\_vpc) | terraform-aws-modules/vpc/aws | ~> 5.0 |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | ~> 5.0 |
 

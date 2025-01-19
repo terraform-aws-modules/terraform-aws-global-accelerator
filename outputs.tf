@@ -7,6 +7,11 @@ output "id" {
   value       = try(aws_globalaccelerator_accelerator.this[0].id, "")
 }
 
+output "arn" {
+  description = "The Amazon Resource Name (ARN) of the accelerator"
+  value       = try(aws_globalaccelerator_accelerator.this[0].arn, "")
+}
+
 output "dns_name" {
   description = "The DNS name of the accelerator"
   value       = try(aws_globalaccelerator_accelerator.this[0].dns_name, "")
@@ -37,7 +42,7 @@ output "listeners" {
 }
 
 ################################################################################
-# Endpoing Group(s)
+# Endpoint Group(s)
 ################################################################################
 
 output "endpoint_groups" {

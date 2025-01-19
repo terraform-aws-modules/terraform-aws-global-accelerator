@@ -51,23 +51,35 @@ resource "aws_globalaccelerator_listener" "this" {
 ################################################################################
 # Endpoint Group(s)
 ################################################################################
+locals {
+  endpoint_groups = flatten([
+    for listener, listener_configs in var.listeners : [
+      for endpoint_group, endpoint_group_configs in listener_configs.endpoint_group : {
+        listener               = listener
+        endpoint_group         = endpoint_group
+        endpoint_group_configs = endpoint_group_configs
+      }
+    ] if length(lookup(listener_configs, "endpoint_group", {})) > 0
+  ])
+}
 
 resource "aws_globalaccelerator_endpoint_group" "this" {
-  for_each = { for k, v in var.listeners : k => v if var.create && var.create_listeners && length(lookup(var.listeners[k], "endpoint_group", {})) > 0 }
+  for_each = { for k, v in local.endpoint_groups : "${v.listener}:${v.endpoint_group}" => v if var.create && var.create_listeners }
 
-  listener_arn = aws_globalaccelerator_listener.this[each.key].id
+  listener_arn = aws_globalaccelerator_listener.this[each.value.listener].id
 
-  endpoint_group_region         = try(each.value.endpoint_group.endpoint_group_region, null)
-  health_check_interval_seconds = try(each.value.endpoint_group.health_check_interval_seconds, null)
-  health_check_path             = try(each.value.endpoint_group.health_check_path, null)
-  health_check_port             = try(each.value.endpoint_group.health_check_port, null)
-  health_check_protocol         = try(each.value.endpoint_group.health_check_protocol, null)
-  threshold_count               = try(each.value.endpoint_group.threshold_count, null)
-  traffic_dial_percentage       = try(each.value.endpoint_group.traffic_dial_percentage, null)
+  endpoint_group_region         = try(each.value.endpoint_group_configs.endpoint_group_region, null)
+  health_check_interval_seconds = try(each.value.endpoint_group_configs.health_check_interval_seconds, null)
+  health_check_path             = try(each.value.endpoint_group_configs.health_check_path, null)
+  health_check_port             = try(each.value.endpoint_group_configs.health_check_port, null)
+  health_check_protocol         = try(each.value.endpoint_group_configs.health_check_protocol, null)
+  threshold_count               = try(each.value.endpoint_group_configs.threshold_count, null)
+  traffic_dial_percentage       = try(each.value.endpoint_group_configs.traffic_dial_percentage, null)
 
   dynamic "endpoint_configuration" {
-    for_each = [for e in try(each.value.endpoint_group.endpoint_configuration, []) : e if can(e.endpoint_id)]
+    for_each = [for e in try(each.value.endpoint_group_configs.endpoint_configuration, []) : e if can(e.endpoint_id)]
     content {
+      attachment_arn                 = try(endpoint_configuration.value.attachment_arn, null)
       client_ip_preservation_enabled = try(endpoint_configuration.value.client_ip_preservation_enabled, null)
       endpoint_id                    = endpoint_configuration.value.endpoint_id
       weight                         = try(endpoint_configuration.value.weight, null)
@@ -75,7 +87,7 @@ resource "aws_globalaccelerator_endpoint_group" "this" {
   }
 
   dynamic "port_override" {
-    for_each = can(each.value.endpoint_group.port_override) ? each.value.endpoint_group.port_override : []
+    for_each = can(each.value.endpoint_group_configs.port_override) ? each.value.endpoint_group_configs.port_override : []
     content {
       endpoint_port = port_override.value.endpoint_port
       listener_port = port_override.value.listener_port

@@ -109,13 +109,13 @@ Examples codified under the [`examples`](https://github.com/terraform-aws-module
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.61 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.84 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.61 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.84 |
 
 ## Modules
 
@@ -151,6 +151,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_arn"></a> [arn](#output\_arn) | The Amazon Resource Name (ARN) of the accelerator |
 | <a name="output_dns_name"></a> [dns\_name](#output\_dns\_name) | The DNS name of the accelerator |
 | <a name="output_dual_stack_dns_name"></a> [dual\_stack\_dns\_name](#output\_dual\_stack\_dns\_name) | The DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses |
 | <a name="output_endpoint_groups"></a> [endpoint\_groups](#output\_endpoint\_groups) | Map of endpoints created and their associated attributes |
