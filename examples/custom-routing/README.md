@@ -1,10 +1,10 @@
-# Complete AWS Global Accelerator Example
+# Custom Routing AWS Global Accelerator Example
 
 Configuration in this directory creates:
 
-- A standard Global Accelerator
+- A custom routing Global Accelerator
 - Multiple listeners
-- An endpoint group for one of the listeners with multiple endpoints
+- Multiple endpoint groups 
 
 ## Usage
 
