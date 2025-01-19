@@ -52,12 +52,12 @@ resource "aws_globalaccelerator_custom_routing_listener" "this" {
 locals {
   endpoint_groups = flatten([
     for listener, listener_configs in var.listeners : [
-      for endpoint_group, endpoint_group_configs in listener_configs.endpoint_group : {
+      for endpoint_group, endpoint_group_configs in listener_configs.endpoint_groups : {
         listener               = listener
         endpoint_group         = endpoint_group
         endpoint_group_configs = endpoint_group_configs
       }
-    ] if length(lookup(listener_configs, "endpoint_group", {})) > 0
+    ] if length(lookup(listener_configs, "endpoint_groups", {})) > 0
   ])
 }
 

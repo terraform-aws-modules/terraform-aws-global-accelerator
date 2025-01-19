@@ -43,7 +43,7 @@ module "global_accelerator" {
   # Listeners
   listeners = {
     listener_1 = {
-      endpoint_group = {
+      endpoint_groups = {
         one = {
           endpoint_group_region = "us-west-2"
           destination_configuration = [
@@ -94,7 +94,7 @@ module "global_accelerator" {
 
     listener_2 = {
 
-      endpoint_group = {
+      endpoint_groups = {
         my_group = {
           destination_configuration = [
             {

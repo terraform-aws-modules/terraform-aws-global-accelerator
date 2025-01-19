@@ -20,7 +20,7 @@ module "global_accelerator" {
     listener_1 = {
       client_affinity = "SOURCE_IP"
 
-      endpoint_group = {
+      endpoint_groups = {
         my_group = {
           health_check_port             = 80
           health_check_protocol         = "HTTP"
