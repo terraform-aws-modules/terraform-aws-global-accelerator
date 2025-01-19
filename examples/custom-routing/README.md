@@ -4,7 +4,7 @@ Configuration in this directory creates:
 
 - A custom routing Global Accelerator
 - Multiple listeners
-- Multiple endpoint groups 
+- Multiple endpoint groups
 
 ## Usage
 
