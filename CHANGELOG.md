@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.2.2...v3.0.0) (2025-01-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* Support multiple endpoint groups, add custom routing module, AWS provider MSV 5 (#16)
+
+### Features
+
+* Support multiple endpoint groups, add custom routing module, AWS provider MSV 5 ([#16](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/issues/16)) ([4307cf2](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/commit/4307cf22717d65c52f466a150cc9676ed0f09510))
+
+
+### Bug Fixes
+
+* Update CI workflow versions to latest ([#15](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/issues/15)) ([0443981](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/commit/044398126d7d04ad2637d566f245f23ee7ba614a))
+
 ## [2.2.2](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.2.1...v2.2.2) (2024-04-09)
 
 
