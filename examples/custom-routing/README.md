@@ -1,10 +1,10 @@
-# Complete AWS Global Accelerator Example
+# Custom Routing AWS Global Accelerator Example
 
 Configuration in this directory creates:
 
-- A standard Global Accelerator
+- A custom routing Global Accelerator
 - Multiple listeners
-- An endpoint group for one of the listeners with multiple endpoints
+- Multiple endpoint groups
 
 ## Usage
 
@@ -36,11 +36,9 @@ Note that this example may create resources which will incur monetary charges on
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_alb"></a> [alb](#module\_alb) | terraform-aws-modules/alb/aws | ~> 7.0 |
-| <a name="module_global_accelerator"></a> [global\_accelerator](#module\_global\_accelerator) | ../.. | n/a |
-| <a name="module_global_accelerator_disabled"></a> [global\_accelerator\_disabled](#module\_global\_accelerator\_disabled) | ../.. | n/a |
+| <a name="module_global_accelerator"></a> [global\_accelerator](#module\_global\_accelerator) | ../../modules/custom-routing | n/a |
+| <a name="module_global_accelerator_disabled"></a> [global\_accelerator\_disabled](#module\_global\_accelerator\_disabled) | ../../modules/custom-routing | n/a |
 | <a name="module_s3_log_bucket"></a> [s3\_log\_bucket](#module\_s3\_log\_bucket) | terraform-aws-modules/s3-bucket/aws | ~> 3.0 |
-| <a name="module_secondary_alb"></a> [secondary\_alb](#module\_secondary\_alb) | terraform-aws-modules/alb/aws | ~> 7.0 |
 | <a name="module_secondary_vpc"></a> [secondary\_vpc](#module\_secondary\_vpc) | terraform-aws-modules/vpc/aws | ~> 5.0 |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | ~> 5.0 |
 

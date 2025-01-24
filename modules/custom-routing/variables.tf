@@ -11,7 +11,7 @@ variable "tags" {
 }
 
 ################################################################################
-# Accelerator
+# Custom Routing Accelerator
 ################################################################################
 
 variable "name" {
@@ -57,7 +57,7 @@ variable "flow_logs_s3_prefix" {
 }
 
 ################################################################################
-# Listener(s)
+# Custom Routing Listener(s)
 ################################################################################
 
 variable "create_listeners" {
@@ -79,7 +79,7 @@ variable "listeners_timeouts" {
 }
 
 ################################################################################
-# Endpoint Group(s)
+# Custom Routing Endpoint Group(s)
 ################################################################################
 
 # Endpoint groups are nested with the listener definition

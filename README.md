@@ -20,36 +20,38 @@ module "global_accelerator" {
     listener_1 = {
       client_affinity = "SOURCE_IP"
 
-      endpoint_group = {
-        health_check_port             = 80
-        health_check_protocol         = "HTTP"
-        health_check_path             = "/"
-        health_check_interval_seconds = 10
-        health_check_timeout_seconds  = 5
-        healthy_threshold_count       = 2
-        unhealthy_threshold_count     = 2
-        traffic_dial_percentage       = 100
+      endpoint_groups = {
+        my_group = {
+          health_check_port             = 80
+          health_check_protocol         = "HTTP"
+          health_check_path             = "/"
+          health_check_interval_seconds = 10
+          health_check_timeout_seconds  = 5
+          healthy_threshold_count       = 2
+          unhealthy_threshold_count     = 2
+          traffic_dial_percentage       = 100
 
-        endpoint_configuration = [{
-          client_ip_preservation_enabled = true
-          endpoint_id                    = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/blue/1234567890123456"
-          weight                         = 50
+          endpoint_configuration = [{
+            client_ip_preservation_enabled = true
+            endpoint_id                    = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/blue/1234567890123456"
+            weight                         = 50
           }, {
-          client_ip_preservation_enabled = false
-          endpoint_id                    = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/green/1234567890123456"
-          weight                         = 50
-        }]
+            client_ip_preservation_enabled = false
+            endpoint_id                    = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/green/1234567890123456"
+            weight                         = 50
+          }]
 
-        port_override = [{
-          endpoint_port = 82
-          listener_port = 80
+          port_override = [{
+            endpoint_port = 82
+            listener_port = 80
           }, {
-          endpoint_port = 8082
-          listener_port = 8080
+            endpoint_port = 8082
+            listener_port = 8080
           }, {
-          endpoint_port = 8083
-          listener_port = 8081
-        }]
+            endpoint_port = 8083
+            listener_port = 8081
+          }]
+        }
       }
 
       port_ranges = [
@@ -109,13 +111,13 @@ Examples codified under the [`examples`](https://github.com/terraform-aws-module
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.61 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.84 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.61 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.84 |
 
 ## Modules
 
@@ -151,6 +153,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_arn"></a> [arn](#output\_arn) | The Amazon Resource Name (ARN) of the accelerator |
 | <a name="output_dns_name"></a> [dns\_name](#output\_dns\_name) | The DNS name of the accelerator |
 | <a name="output_dual_stack_dns_name"></a> [dual\_stack\_dns\_name](#output\_dual\_stack\_dns\_name) | The DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses |
 | <a name="output_endpoint_groups"></a> [endpoint\_groups](#output\_endpoint\_groups) | Map of endpoints created and their associated attributes |
