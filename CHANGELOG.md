@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v3.0.0...v3.0.1) (2025-10-21)
+
+### Bug Fixes
+
+* Update CI workflow versions to latest ([#18](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/issues/18)) ([9d50359](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/commit/9d5035922fcfa916a8e78280e5966492d3301c3c))
+
 ## [3.0.0](https://github.com/terraform-aws-modules/terraform-aws-global-accelerator/compare/v2.2.2...v3.0.0) (2025-01-24)
 
 
